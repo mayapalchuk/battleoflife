@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sketch</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <script src="sketch.js"></script>
+    <div id="rules">
+      <h1>How to play</h1>
+      <p>Press 1-9 to switch between players and colors (you start as 1).</p>
+      <p>Press space to start or stop the simulation.</p>
+      <p>Press r to reset the grid.</p>
+    </div>
+    <div id="what">
+      <h1>What is this?</h1>
+      <p>This is the Battle of Life, a modified version of Conway's Game of Life.</p>
+      <p> The original is a cellular automaton, with an initial grid of 'dead' and 'alive' cells. Each new generation (around 6 times a second) updates each cell according to the state of its neighbors. Play and learn about the original <a href="https://playgameoflife.com/">here</a>.</p>
+      <p> This version introduces 8 more states that each cell can be in, all of which are represented by 10 distinct colors on the grid (white is considered 'dead', every other color is 'alive'). The rules are the same as the original, except that in the case that a cell is alive in the next generation, it will take the color that the majority of its (alive) neighbors have. This allows players to explore with 'battles' between colors for control of the entire grid!</p>
+    </div>
+  </body>
+</html>
