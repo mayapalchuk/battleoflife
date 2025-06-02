@@ -18,14 +18,10 @@ function setup() {
 function draw() {
   background(0);
   stroke(0);
-  if(running) {
-    drawGrid();
-    if(frameCount % 10 == 0) {
-      nextGen();
-    } 
-  } else {
-    drawGrid();
-  }
+  if(frameCount % 10 == 0 && running) {
+    nextGen();
+  } 
+  drawGrid();
 }
 
 function drawGrid() {
