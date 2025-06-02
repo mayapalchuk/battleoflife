@@ -82,7 +82,10 @@ function nextGen() {
       }
       let max = 1;
       for(let x = 1; x < counts.length; x++) {
-        if(counts[x] > counts[max]) {
+        if(counts[x] == counts[max] && Math.random() < 0.5) {
+          max = x;
+        }
+        else if(counts[x] > counts[max]) {
           max = x;
         }
       }
