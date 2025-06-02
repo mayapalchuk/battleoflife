@@ -13,12 +13,15 @@
   </head>
 
   <body>
-    <script src="sketch.js"></script>
     <div id="rules">
-      <h1>How to play</h1>
-      <p>Press 1-9 to switch between players and colors (you start as 1).</p>
-      <p>Press space to start or stop the simulation.</p>
-      <p>Press r to reset the grid.</p>
+      <section>
+        <h1>How to play</h1>
+        <p>Press 1-9 to switch between players and colors (you start as 1).</p>
+        <p>Press space to start or stop the simulation.</p>
+        <p>Press r to reset the grid.</p>
+        <p>Press f to fill the grid randomly. </p>
+        <p>Use left and right arrow keys to switch between color palletes. </p>
+      </section>
     </div>
     <div id="what">
       <h1>What is this?</h1>
@@ -26,5 +29,7 @@
       <p> The original is a cellular automaton, with an initial grid of 'dead' and 'alive' cells. Each new generation (around 6 times a second) updates each cell according to the state of its neighbors. Play and learn about the original <a href="https://playgameoflife.com/">here</a>.</p>
       <p> This version introduces 8 more states that each cell can be in, all of which are represented by 10 distinct colors on the grid (white is considered 'dead', every other color is 'alive'). The rules are the same as the original, except that in the case that a cell is alive in the next generation, it will take the color that the majority of its (alive) neighbors have. This allows players to explore with 'battles' between colors for control of the entire grid!</p>
     </div>
+    <div id="script"><script src="sketch.js"></script></div>
   </body>
 </html>
+ 

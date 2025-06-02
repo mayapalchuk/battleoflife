@@ -3,7 +3,11 @@ const side_len = 8;
 let grid = [];
 let running = false;
 let color = 1;
-let colors = ['white', 'black', 'red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'purple', 'hotpink'];
+let pallete = 0;
+let palletes = [['white', '#02042F', '#1D1E78', '#0931B3', '#084067', '#3457C9', '#247DD4', '#0EA29E', '#50E9E5', '#7CB8FF'], 
+                ['white', 'black', '#BD0E0E', '#E07B21', '#FED841', '#6AB645', '#1C84A4', '#212BAC', '#6D2A91', '#C33A88'],
+                ['white', '#000823', '#FFE4AE', '#FFD756', '#F7A23A', '#F17A25', '#D74B58', '#BF0170', '#7A016D', '#36026F']
+               ];
 
 function setup() {
   for(let i = 0; i < width/side_len; i++) {
@@ -18,6 +22,7 @@ function setup() {
 function draw() {
   background(0);
   stroke(0);
+  strokeWeight(0.25 );
   if(frameCount % 10 == 0 && running) {
     nextGen();
   } 
@@ -27,14 +32,14 @@ function draw() {
 function drawGrid() {
   for(let i = 0; i < grid.length; i++) {
     for(let j = 0; j < grid[0].length; j++) {
-      fill(colors[grid[i][j]]);
+      fill(palletes[pallete][grid[i][j]]);
       square(i*side_len, j*side_len, side_len);
     }
   }
 }
 
 function mouseClicked() {
-  if(mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= width) {
+  if(mouseX >= side_len && mouseX <= width-side_len && mouseY >= side_len && mouseY <= width-side_len) {
     let x = Math.floor(mouseX / side_len);
     let y = Math.floor(mouseY / side_len);
     grid[x][y] = color;
@@ -42,7 +47,7 @@ function mouseClicked() {
 }
 
 function mouseDragged() {
-  if(mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= width) {
+  if(mouseX >= side_len && mouseX <= width-side_len && mouseY >= side_len && mouseY <= width-side_len) {
     let x = Math.floor(mouseX / side_len);
     let y = Math.floor(mouseY / side_len);
     grid[x][y] = color;
@@ -62,6 +67,30 @@ function keyPressed() {
     for(let i = 0; i < grid.length; i++) {
       for(let j = 0; j < grid[0].length; j++) {
         grid[i][j] = 0;
+      }
+    }
+  }
+
+  if(key == 'f') {
+    randomFill();
+  }
+
+  if(keyCode == RIGHT_ARROW) {
+    pallete++;
+    pallete %= palletes.length;
+  }
+
+  if(keyCode == LEFT_ARROW) {
+    pallete--;
+    if(pallete == -1) { pallete = palletes.length - 1; }
+  }
+}
+
+function randomFill() {
+  for(let i = 1; i < grid.length - 1; i++) {
+    for(let j = 1; j < grid[0].length - 1; j++) {
+      if(Math.random() < 0.6) {
+        grid[i][j] = Math.floor(Math.random() * 8) + 1;
       }
     }
   }

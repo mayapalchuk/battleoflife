@@ -17,3 +17,13 @@ body {
 canvas {
   display: block;
 }
+
+#rules {
+  width:300px;
+  margin:auto;
+}
+
+#what {
+  width:300px;
+  margin:auto;
+}
